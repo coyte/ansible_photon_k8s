@@ -14,11 +14,10 @@
 ##
 ##    Project: PhotonK8s
 ##    Authors: Niels Teekens
-##   Filename: deploy-photos-k8s.yml
-##   dependecies:
-##      xorrisofs
+##   Filename: deploy-vms.yml
+##
 ---
-- hosts: localhost
+- hosts: controlplane.teekens.info
   name: deploy-photon-k8s.yml
   vars_files:
     - ./config.yml
@@ -27,8 +26,8 @@
     - name: Displays vars
       debug:
         msg:
-          - "vSphere URL: {{ vsphere.url }}"
-          - "Username:    {{ vsphere.user }}"
-          - "Password:    {{ vsphere.password }}"
+          - "vSphere URL: {{ url }}"
+          - "Username:    {{ user }}"
+          - "Password:    {{ password }}"
 # Deploy vms according to config.yml
 - import_playbook: playbooks/deploy-vms.yml

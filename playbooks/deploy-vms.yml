@@ -14,7 +14,7 @@
 #set password
 #(swap)
 
-- hosts: localhost
+- hosts: controlplane.teekens.info
   name: deploy-vms.yml
   vars_files:
     - ../config.yml
@@ -32,4 +32,4 @@
       get_url:
         url: "{{ photonurl }}"
         dest: /tmp/photon.iso
-#comment
+        force: yes
