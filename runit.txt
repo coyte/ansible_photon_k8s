@@ -1,0 +1,1 @@
+ansible-playbook deploy-photon-k8s.yaml -i inventory

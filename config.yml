@@ -1,0 +1,11 @@
+photon:
+  url: https://packages.vmware.com/photon/4.0/GA/iso/photon-minimal-4.0-1526e30ba.iso
+  mnt: /mnt
+  tmp: /tmp
+
+vsphere:
+  url: https://esxi02.teekens.info
+  user: Administrator@vsphere.local
+  password: $PASSWD
+
+

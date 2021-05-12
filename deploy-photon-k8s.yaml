@@ -1,0 +1,34 @@
+##read config file
+##	hostnames
+##	ip addresses
+##	username
+##	password
+##	autorized_hosts string
+##	extra packages
+##
+##deploy-vms playbook
+##kubespray playbook
+##deploy metalLB
+##download kubeconfig
+
+##
+##    Project: PhotonK8s
+##    Authors: Niels Teekens
+##   Filename: deploy-photos-k8s.yml
+##   dependecies:
+##      xorrisofs
+---
+- hosts: localhost
+  name: deploy-photon-k8s.yml
+  vars_files:
+    - ./config.yml
+
+  tasks:
+    - name: Displays vars
+      debug:
+        msg:
+          - "vSphere URL: {{ vsphere.url }}"
+          - "Username:    {{ vsphere.user }}"
+          - "Password:    {{ vsphere.password }}"
+# Deploy vms according to config.yml
+- import_playbook: playbooks/deploy-vms.yml

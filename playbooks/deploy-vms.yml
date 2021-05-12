@@ -1,0 +1,34 @@
+#download latest photon iso
+#mount local
+#copy ks config file
+#copy in iso
+#upload iso data store
+#create vm (cpu, RAM, storage, network(s))
+#deploy photon OS
+#connect to vm
+#cp authorized client string
+#run updates
+#set hostname
+#set ip address
+#set username
+#set password
+#(swap)
+
+- hosts: localhost
+  name: deploy-vms.yml
+  vars_files:
+    - ../config.yml
+
+  tasks:
+    - name: Displays vars
+      debug:
+        msg:
+          - "vSphere URL: {{ url }}"
+          - "Username:    {{ user }}"
+          - "Password:    {{ password }}"
+          - "Photon URL:  {{ photonurl }}"
+
+    - name: Download photon OS minimal ISO
+      get_url:
+        url: "{{ photonurl }}"
+        dest: /tmp/photon.iso
