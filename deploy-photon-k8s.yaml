@@ -19,15 +19,15 @@
 ---
 - hosts: controlplane.teekens.info
   name: deploy-photon-k8s.yml
-  vars_files:
-    - ./config.yml
+#  vars_files:
+#    - ./config.yml
 
-  tasks:
-    - name: Displays vars
-      debug:
-        msg:
-          - "vSphere URL: {{ url }}"
-          - "Username:    {{ user }}"
-          - "Password:    {{ password }}"
+#  tasks:
+#    - name: Displays vars
+#      debug:
+#        msg:
+#          - "vSphere URL: {{ url }}"
+#          - "Username:    {{ user }}"
+#          - "Password:    {{ password }}"
 # Deploy vms according to config.yml
 - import_playbook: playbooks/deploy-vms.yml

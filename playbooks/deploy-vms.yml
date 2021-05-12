@@ -23,13 +23,13 @@
     - name: Displays vars
       debug:
         msg:
-          - "vSphere URL: {{ url }}"
-          - "Username:    {{ user }}"
-          - "Password:    {{ password }}"
-          - "Photon URL:  {{ photonurl }}"
+          - "vSphere URL: {{ vsphere.url }}"
+          - "Username:    {{ vsphere.user }}"
+          - "Password:    {{ vsphere.password }}"
+          - "Photon URL:  {{ photon.url }}"
 
     - name: Download photon OS minimal ISO
       get_url:
-        url: "{{ photonurl }}"
+        url: "{{ photon.url }}"
         dest: /tmp/photon.iso
         force: yes
